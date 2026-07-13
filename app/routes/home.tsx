@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import type { Route } from "./+types/home";
 import { Navbar } from "../components/layout/Navbar";

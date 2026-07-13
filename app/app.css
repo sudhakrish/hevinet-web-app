@@ -5,6 +5,15 @@
   src: url("/theme/fonts/handsean.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Handsen";
+  src: url("/theme/fonts/handsean.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
 }
 
 :root {
@@ -85,5 +94,112 @@ main {
   .section-grid.columns-2,
   .section-grid.columns-3 {
     grid-template-columns: 1fr;
+  }
+}
+
+.mobile-nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+  width: max-content;
+  max-width: calc(100vw - 7rem);
+}
+
+.mobile-nav-toggle {
+  position: relative;
+  border-radius: 999px;
+  transition: background-color 180ms ease;
+}
+
+.mobile-nav-toggle:hover {
+  background-color: rgba(17, 17, 17, 0.05);
+}
+
+.mobile-nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: #111111;
+  border-radius: 999px;
+  transition: transform 220ms ease, opacity 220ms ease;
+  transform-origin: center;
+}
+
+.mobile-nav-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+.mobile-nav-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-nav-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 240ms ease, opacity 220ms ease, transform 220ms ease, margin-top 220ms ease, padding 220ms ease;
+  margin-top: 0;
+  padding: 0 0.75rem;
+  will-change: opacity, transform, max-height;
+}
+
+.mobile-nav-menu.open {
+  max-height: 320px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+}
+
+.mobile-nav-menu.closing {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  margin-top: 0;
+  padding: 0 0.75rem;
+}
+
+.mobile-nav-item {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+.mobile-nav-menu.open .mobile-nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-nav-menu.closing .mobile-nav-item {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@keyframes slideInMobileNav {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutMobileNav {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
   }
 }

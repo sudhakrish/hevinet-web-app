@@ -12,8 +12,8 @@ export const siteData = {
     },
   },
   logo: {
-    image: "/theme/images/h-logo.png",
-    text: "evinet",
+    image: "/theme/images/logo1.png",
+    text: "Hevinet",
     alt: "Hevinet logo",
   },
   navLinks: [
