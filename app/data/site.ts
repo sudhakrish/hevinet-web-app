@@ -87,12 +87,38 @@ export const siteData = {
     ],
   },
   contact: {
-    title: "Contact Us",
+    label: "Contact us",
+    title: "Start your trade journey",
     description:
-      "Have a question or need a custom solution? Share your details and we’ll connect you with the right team.",
+      "Tell us about your trade requirements. A specialist from our desk will respond within one business day.",
     info: [
-      { label: "Email", value: "hello@hevinet.com" },
-      { label: "Phone", value: "+1 (555) 123-4567" },
+      {
+        label: "Headquarters",
+        value: "18 Raffles Quay, #22-00, Singapore 048582",
+      },
+      {
+        label: "Trade desk",
+        value: "+65 6823 4400",
+      },
+      {
+        label: "Email",
+        value: "trade@hevinet.com",
+      },
     ],
+    form: {
+      fullNameLabel: "Full name",
+      fullNamePlaceholder: "James Thor",
+      companyLabel: "Company",
+      companyPlaceholder: "Acme Industries",
+      emailLabel: "Email",
+      emailPlaceholder: "james@acme.com",
+      countryLabel: "Country",
+      countryPlaceholder: "United States",
+      tradeTypeLabel: "Trade type",
+      tradeTypes: ["Export", "Import", "Both"],
+      requirementsLabel: "Trade requirements",
+      requirementsPlaceholder: "Describe your goods, target markets, volumes...",
+      submitLabel: "Submit trade inquiry",
+    },
   },
 };
