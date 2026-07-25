@@ -16,7 +16,7 @@ export function HeroSection({ onScrollIndicatorClick }: HeroSectionProps) {
         alignItems: "center",
         justifyContent: "center",
         padding: "2rem",
-        paddingTop: "8rem",
+        paddingTop: "1rem",
         position: "relative",
       }}
     >

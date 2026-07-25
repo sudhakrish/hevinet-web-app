@@ -3,11 +3,15 @@ import { Section } from "../ui/Section";
 
 export function ProductsSection() {
   return (
-    <Section id="products" title={siteData.products.title}>
-      <p className="section-text" style={{ maxWidth: "760px", margin: "0 auto 2rem" }}>
-        {siteData.products.highlights[0].content}
-      </p>
-      <div className="section-grid columns-2">
+    <Section id="products" title="">
+      <div style={{ maxWidth: 1120, width: "100%", margin: "0 auto", textAlign: "left" }}>
+        <span className="contact-eyebrow" style={{ display: "inline-flex", marginBottom: "1.5rem" }}>{siteData.products.title}</span>
+
+        <p className="section-text" style={{ maxWidth: "760px", margin: "0 0 2rem 0" }}>
+          {siteData.products.highlights[0].content}
+        </p>
+
+        <div className="section-grid columns-2">
         {siteData.products.categories.map((category) => (
           <div key={category.title} className="section-card">
             <h3 style={{ marginTop: 0, marginBottom: "0.75rem", color: "var(--primary-color)" }}>
@@ -28,6 +32,7 @@ export function ProductsSection() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </Section>
   );

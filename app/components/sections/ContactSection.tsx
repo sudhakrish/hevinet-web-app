@@ -3,52 +3,78 @@ import { Section } from "../ui/Section";
 
 export function ContactSection() {
   return (
-    <Section id="contact-us" title={siteData.contact.title}>
-      <p className="section-text" style={{ maxWidth: "760px", margin: "0 auto 2rem" }}>
-        {siteData.contact.description}
-      </p>
-      <div className="section-grid columns-2" style={{ alignItems: "start" }}>
-        <div className="section-card">
-          <h3 style={{ marginTop: 0, marginBottom: "0.75rem", color: "var(--primary-color)" }}>
-            Reach out
-          </h3>
-          <div style={{ display: "grid", gap: "1rem" }}>
-            {siteData.contact.info.map((item) => (
-              <div key={item.label}>
-                <strong>{item.label}:</strong>
-                <p style={{ margin: "0.25rem 0 0", color: "var(--muted-color)" }}>{item.value}</p>
-              </div>
-            ))}
+    <Section id="contact-us" title="">
+      <div className="contact-section">
+        <div className="contact-grid">
+          <div className="contact-panel">
+            <span className="contact-eyebrow">Contact us</span>
+            <h2 className="contact-heading">Start your trade journey</h2>
+            <p className="contact-copy">Tell us about your trade requirements. A specialist from our desk will respond within one business day.</p>
+
+            <div className="contact-info-list">
+              {siteData.contact.info.map((item) => (
+                <div key={item.label} className="contact-info-item">
+                  <div className="contact-info-key">{item.label}</div>
+                  <p className="contact-info-value">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="contact-form-shell">
+            <div className="contact-form-card">
+              <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+                <div className="form-row two-column">
+                  <label>
+                    Full name
+                    <input type="text" placeholder="James Thor" />
+                  </label>
+                  <label>
+                    Company
+                    <input type="text" placeholder="Acme Indus" />
+                  </label>
+                </div>
+
+                <div className="form-row two-column">
+                  <label>
+                    Email
+                    <input type="email" placeholder="james@acme.com" />
+                  </label>
+                  <label>
+                    Country
+                    <input type="text" placeholder="United States" />
+                  </label>
+                </div>
+
+                <div className="form-row">
+                  <span className="form-label">Trade type</span>
+                  <div className="trade-type-group">
+                    <button type="button" className="trade-type-button active">
+                      Export
+                    </button>
+                    <button type="button" className="trade-type-button">
+                      Import
+                    </button>
+                    <button type="button" className="trade-type-button">
+                      Both
+                    </button>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <label>
+                    Trade requirements
+                    <textarea rows={6} placeholder="Describe your goods, target markets, volumes..." />
+                  </label>
+                </div>
+
+                <button type="submit" className="contact-submit-button">
+                  Submit trade inquiry
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-        <form className="section-card" style={{ display: "grid", gap: "1rem" }}>
-          <label style={{ display: "grid", gap: "0.5rem" }}>
-            Name
-            <input type="text" placeholder="Your name" style={{ padding: "0.9rem 1rem", borderRadius: "12px", border: "1px solid #ccc" }} />
-          </label>
-          <label style={{ display: "grid", gap: "0.5rem" }}>
-            Email
-            <input type="email" placeholder="Your email" style={{ padding: "0.9rem 1rem", borderRadius: "12px", border: "1px solid #ccc" }} />
-          </label>
-          <label style={{ display: "grid", gap: "0.5rem" }}>
-            Message
-            <textarea rows={5} placeholder="Tell us about your request" style={{ padding: "0.9rem 1rem", borderRadius: "12px", border: "1px solid #ccc", resize: "vertical" }} />
-          </label>
-          <button
-            type="button"
-            style={{
-              backgroundColor: "var(--primary-color)",
-              color: "white",
-              border: "none",
-              borderRadius: "999px",
-              padding: "1rem 1.5rem",
-              cursor: "pointer",
-              fontWeight: "700",
-            }}
-          >
-            Submit
-          </button>
-        </form>
       </div>
     </Section>
   );

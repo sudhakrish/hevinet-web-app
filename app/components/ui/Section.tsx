@@ -26,19 +26,21 @@ export function Section({ id, title, children }: SectionProps) {
           margin: "0 auto",
         }}
       >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            marginTop: 0,
-            marginBottom: "2rem",
-            textAlign: "center",
-            color: "#FF6600",
-            textTransform: "capitalize",
-            fontWeight: "600",
-          }}
-        >
-          {title}
-        </h1>
+        {title ? (
+          <h1
+            style={{
+              fontSize: "2.5rem",
+              marginTop: 0,
+              marginBottom: "2rem",
+              textAlign: "center",
+              color: "#FF6600",
+              textTransform: "capitalize",
+              fontWeight: "600",
+            }}
+          >
+            {title}
+          </h1>
+        ) : null}
         {children && (
           <div
             style={{
