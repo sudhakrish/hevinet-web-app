@@ -282,7 +282,11 @@ export const siteInfo = {
     title: "Contact Us",
     intro:
       "Ready to source premium Indian coffee, tea, or spices? Reach out for samples, pricing, or to discuss your requirements.",
-    email: "sales@hevinet.com",
+    address: "Chennai, Tamil Nadu, India",
+    phone: "+91 97898 51808",
+    email: "hevinet.official@gmail.com",
+    hours:
+      "24/7 operational support with continuous service availability and rapid inquiry response.",
     fields: [
       { id: "name", label: "Full Name", placeholder: "Your name", type: "text" },
       { id: "company", label: "Company Name", placeholder: "Your company", type: "text" },

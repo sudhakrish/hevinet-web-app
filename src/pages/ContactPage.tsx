@@ -114,19 +114,19 @@ function ContactPage() {
         <div className="contact-details">
           <div className="item">
             <h4>Registered Office</h4>
-            <p>Chennai, Tamil Nadu, India</p>
+            <p>{siteInfo.contact.address}</p>
           </div>
           <div className="item">
             <h4>Phone / WhatsApp</h4>
-            <p>+91 97898 51808</p>
+            <p>{siteInfo.contact.phone}</p>
           </div>
           <div className="item">
             <h4>Email</h4>
-            <p>sales@hevinet.com</p>
+            <p>{siteInfo.contact.email}</p>
           </div>
           <div className="item">
             <h4>Business Hours</h4>
-            <p>24/7 operational support with continuous service availability and rapid inquiry response.</p>
+            <p>{siteInfo.contact.hours}</p>
           </div>
         </div>
       </div>

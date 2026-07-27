@@ -40,10 +40,10 @@ function Footer() {
         <div>
           <h5>Contact</h5>
           <p style={{ color: "#cfc7b3", fontSize: 13 }}>
-            Chennai, Tamil Nadu, India
+            {siteInfo.contact.address}
             <br />
-            <a href="tel:+919789851808" style={{ color: "#cfc7b3", display: "inline-block", marginTop: 4 }}>
-              +91 97898 51808
+            <a href={`tel:${siteInfo.contact.phone.replace(/\s+/g, "")}`} style={{ color: "#cfc7b3", display: "inline-block", marginTop: 4 }}>
+              {siteInfo.contact.phone}
             </a>
             <br />
             <a href={`mailto:${siteInfo.contact.email}`} style={{ color: "#cfc7b3", display: "inline-block" }}>

@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import { products, siteInfo } from "../data/site";
 
 function HomePage() {
+  const featuredProducts = useMemo(() => {
+    const shuffled = [...products].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 4);
+  }, []);
+
   return (
     <>
       <section className="hero">
@@ -65,7 +71,7 @@ function HomePage() {
         <h2 className="section-title center">Our <span className="accent">Products</span></h2>
         <p className="section-intro center">Thirteen core categories of premium Indian agricultural produce.</p>
         <div className="product-grid">
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <Link key={product.slug} className="product-card" to={`/products/${product.slug}`}>
               <div className="thumb">{product.icon}</div>
               <div className="info">
@@ -75,6 +81,11 @@ function HomePage() {
               </div>
             </Link>
           ))}
+        </div>
+        <div className="section-actions" style={{ textAlign: "center", marginTop: 32 }}>
+          <Link className="btn btn-outline" to="/products">
+            Show more products
+          </Link>
         </div>
       </section>
 
