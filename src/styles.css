@@ -1,0 +1,85 @@
+/** App-level styling imported from the static site CSS */
+@import "/assets/css/style.css";
+
+.product-detail{
+  padding: 0 0 3rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.other-products {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 0 2rem;
+  box-sizing: border-box;
+  border-top: 1px solid #e8ddc7;
+}
+
+@media (max-width: 768px) {
+  .product-detail,
+  .other-products {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail,
+  .other-products {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+}
+
+body {
+  min-height: 100vh;
+}
+
+main {
+  padding-top: 0;
+}
+
+/* Apply navbar offset to first section of each page */
+main > section:first-of-type {
+  padding-top: 180px !important;
+}
+
+/* Navbar fixed positioning offset for different screen sizes */
+@media (max-width: 1280px) {
+  main > section:first-of-type {
+    padding-top: 170px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  main > section:first-of-type {
+    padding-top: 180px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  main > section:first-of-type {
+    padding-top: 160px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  main > section:first-of-type {
+    padding-top: 160px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  main > section:first-of-type {
+    padding-top: 150px !important;
+  }
+}
+
+header.site.home .logo-wrap img {
+  max-width: 100%;
+  transition: height 220ms ease-out;
+  display: block;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "hevinet-site-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site generator that produces the Hevinet website in ../site. No dependencies — pure Node.js.",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
