@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { navLinks, products } from "../data/site";
+import { navLinks, products, siteInfo } from "../data/site";
 import { Logo } from "./Logo";
 
 export function Navbar() {
@@ -122,10 +122,9 @@ export function Navbar() {
       if (location.pathname !== "/" && link.path === "/" && location.pathname === "/") return true;
       if (link.path !== "/" && location.pathname.startsWith(link.path)) return true;
       return false;
-    })?.label || "Menu";
+    })?.label || siteInfo.nav.mobileMenuLabel;
 
   return (
-    <>
     <nav
       style={{
         position: "fixed",
@@ -206,11 +205,11 @@ export function Navbar() {
                   (e.currentTarget as HTMLElement).style.backgroundColor = "#FF6600";
                 }}
               >
-                Request a Quote
+                {siteInfo.nav.requestQuote}
               </NavLink>
               <button
                 onClick={toggleMobileMenu}
-                aria-label={isDrawerVisible ? "Close navigation menu" : "Toggle navigation menu"}
+                aria-label={isDrawerVisible ? siteInfo.nav.closeMenuAria : siteInfo.nav.openMenuAria}
                 style={{
                   background: "none",
                   border: "none",
@@ -283,12 +282,7 @@ export function Navbar() {
                 (location.pathname !== "/" && link.path !== "/" && location.pathname.startsWith(link.path));
 
               return (
-                <div
-                  key={link.path}
-                  style={{ position: "relative" }}
-                  onMouseEnter={isProducts ? () => setProductDropdownOpen(true) : undefined}
-                  onMouseLeave={isProducts ? () => setProductDropdownOpen(false) : undefined}
-                >
+                <div key={link.path} style={{ position: "relative" }}>
                   <NavLink
                     ref={(el) => {
                       buttonRefs.current[index] = el;
@@ -310,7 +304,7 @@ export function Navbar() {
                     }}
                     onClick={closeMobileMenu}
                   >
-                    {isProducts ? (
+                    {isProducts && useHamburgerLayout ? (
                       <>
                         {link.label} <span aria-hidden="true">▾</span>
                       </>
@@ -319,10 +313,9 @@ export function Navbar() {
                     )}
                   </NavLink>
 
-                  {isProducts && (
+                  {isProducts && useHamburgerLayout && (
                     <div
                       style={{
-                        display: productDropdownOpen ? "block" : "none",
                         position: "absolute",
                         top: "32px",
                         left: 0,
@@ -334,9 +327,6 @@ export function Navbar() {
                         overflowY: "auto",
                         maxHeight: "70vh",
                         zIndex: 1000,
-                        opacity: productDropdownOpen ? 1 : 0,
-                        visibility: productDropdownOpen ? "visible" : "hidden",
-                        transition: "opacity 0.15s ease, visibility 0.15s ease",
                       }}
                     >
                       {products.map((product: any) => (
@@ -396,7 +386,7 @@ export function Navbar() {
               (e.currentTarget as HTMLElement).style.backgroundColor = "#FF6600";
             }}
           >
-            Request a Quote
+            {siteInfo.nav.requestQuote}
           </NavLink>
         )}
       </div>
@@ -443,10 +433,10 @@ export function Navbar() {
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 1rem 0.75rem" }}>
-              <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#111" }}>Menu</div>
+              <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#111" }}>{siteInfo.nav.menuTitle}</div>
               <button
                 onClick={closeMobileMenu}
-                aria-label="Close navigation menu"
+                aria-label={siteInfo.nav.closeMenuAria}
                 style={{
                   background: "#f5f5f5",
                   border: "1px solid #e4e4e4",
@@ -526,6 +516,6 @@ export function Navbar() {
         </div>
       )}
     </nav>
-    </>
+
   );
 }

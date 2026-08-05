@@ -10,7 +10,7 @@ function Footer() {
             <img src="/assets/img/logo-white.png" alt="Hevinet logo" />
           </div>
           <p style={{ maxWidth: 260, color: "#cfc7b3", fontSize: 13 }}>
-            Premium Indian coffee, tea, and spice exports — rooted in India, trusted worldwide.
+            {siteInfo.footer.brandCopy}
           </p>
         </div>
         <div>
@@ -30,16 +30,8 @@ function Footer() {
           ))}
         </div>
         <div>
-          <h5>More Products</h5>
-          {products.slice(6).map((product) => (
-            <Link key={product.slug} to={`/products/${product.slug}`}>
-              {product.shortName}
-            </Link>
-          ))}
-        </div>
-        <div>
-          <h5>Contact</h5>
-          <p style={{ color: "#cfc7b3", fontSize: 13 }}>
+          <h5>{siteInfo.footer.contactTitle}</h5>
+          <p style={{ color: "#cfc7b3", fontSize: 13, margin: 0 }}>
             {siteInfo.contact.address}
             <br />
             <a href={`tel:${siteInfo.contact.phone.replace(/\s+/g, "")}`} style={{ color: "#cfc7b3", display: "inline-block", marginTop: 4 }}>
@@ -53,8 +45,8 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 Hevinet. All Rights Reserved.</span>
-        <span>APEDA Registered · FSSAI Licensed · Spices Board of India Registered</span>
+        <span>{siteInfo.footer.copyright}</span>
+        <span>{siteInfo.footer.complianceText}</span>
       </div>
     </footer>
   );

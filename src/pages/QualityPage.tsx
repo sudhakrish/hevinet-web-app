@@ -4,8 +4,8 @@ function QualityPage() {
   return (
     <>
       <section style={{ background: "var(--gray)" }}>
-        <p className="eyebrow">Trust & compliance</p>
-        <h2 className="section-title">Quality & <span className="accent">Certifications</span></h2>
+        <p className="eyebrow">{siteInfo.quality.eyebrow}</p>
+        <h2 className="section-title">{siteInfo.quality.title}</h2>
         <p className="section-intro">{siteInfo.quality.intro}</p>
         <div className="cert-grid">
           {siteInfo.quality.certifications.map((cert) => (
@@ -15,11 +15,11 @@ function QualityPage() {
             </div>
           ))}
         </div>
-        <p className="note-pill">Add registration/license numbers here once available — buyers often ask for these directly.</p>
+        {/* <p className="note-pill">Add registration/license numbers here once available — buyers often ask for these directly.</p> */}
       </section>
       <section>
-        <p className="eyebrow">How we work</p>
-        <h2 className="section-title">Our Export <span className="accent">Process</span></h2>
+        <p className="eyebrow">{siteInfo.quality.sectionHeading}</p>
+        <h2 className="section-title">{siteInfo.quality.processHeading}</h2>
         <div className="process-steps">
           {siteInfo.quality.process.map((step) => (
             <div key={step.step} className="step">
