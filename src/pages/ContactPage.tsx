@@ -43,7 +43,7 @@ function ContactPage() {
       });
 
       const text = await response.text();
-      let data: { error?: string; success?: boolean } = {};
+      let data: { error?: string; success?: boolean; previewUrl?: string } = {};
 
       try {
         data = text ? JSON.parse(text) : {};
