@@ -39,6 +39,17 @@ separate terminal:
 npm run serve:api
 ```
 
+### Vercel deployment
+
+If you deploy this project to Vercel, the `/api/resend` endpoint is provided
+by the `api/resend.js` serverless function. Make sure the project root on
+Vercel is set to this `hevinet-web-app` folder and the following environment
+variables are configured:
+
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL` (recommended verified sender email)
+- `CONTACT_EMAIL` (destination address for contact form submissions)
+
 ## Scripts
 
 - `npm run dev` — start Vite development server
