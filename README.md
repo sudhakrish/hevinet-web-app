@@ -50,6 +50,11 @@ variables are configured:
 - `RESEND_FROM_EMAIL` (recommended verified sender email)
 - `CONTACT_EMAIL` (destination address for contact form submissions)
 
+Use `RESEND_FROM_EMAIL=noreply@hevinet.in` for local development and Vercel
+Development/Preview environments. Set `RESEND_FROM_EMAIL=noreply@hevinet.com`
+in the Vercel Production environment. Both sender domains must be verified in
+Resend.
+
 ## Scripts
 
 - `npm run dev` — start Vite development server

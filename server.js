@@ -69,8 +69,7 @@ const sendContactEmail = async ({ name, company, email, mobile, country, product
 
 const sendContactEmailWithResend = async ({ name, company, email, mobile, country, product, message }) => {
   const apiKey = process.env.RESEND_API_KEY;
-  const envFromEmail = process.env.RESEND_FROM_EMAIL;
-  const fromEmail = envFromEmail?.endsWith("@hevinet.com") ? "noreply@hevinet.in" : envFromEmail || "noreply@hevinet.in";
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "noreply@hevinet.in";
   const toEmail = process.env.CONTACT_EMAIL || "hevinet.official@gmail.com";
 
   if (!apiKey || !fromEmail) {
